@@ -1,0 +1,169 @@
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div *ngIf="!isLoading">
+  <div *ngIf="!isViewRoulette">
+    <h1>음식점을 골라주세요 ✅</h1>
+  </div>
+
+  <div *ngIf="isViewRoulette">
+    <h1 *ngIf="!restaurantNameDisplay" class="dangchum">돌림판을 돌려주세요🎡</h1>
+    <h1 *ngIf="restaurantNameDisplay" class="dangchum">{{ restaurantName }}🎉 당첨되었습니다!</h1>
+  </div>
+
+  <div *ngIf="isViewRoulette && deviceInfo === 'mobile' || deviceInfo === 'tablet' ">
+    <ngx-wheel class="wheel"
+               *ngIf="items.length > 0"
+               #wheel
+               width='350'
+               height='380'
+               spinDuration='8'
+               [disableSpinOnClick]='true'
+               [items]='items'
+               [innerRadius]='30'
+               [spinAmount]='7'
+               textOrientation='horizontal'
+               textAlignment="outer"
+               pointerStrokeColor='black'
+               pointerFillColor='purple'
+               [idToLandOn]='idToLandOn'
+               (onSpinStart)='before()'
+               (onSpinComplete)='after()'>
+    </ngx-wheel>
+  </div>
+
+  <div *ngIf="isViewRoulette && deviceInfo === 'desktop'">
+    <ngx-wheel class="wheel"
+               *ngIf="items.length > 0"
+               #wheel
+               width='800'
+               height='800'
+               spinDuration='8'
+               [disableSpinOnClick]='true'
+               [items]='items'
+               [innerRadius]='30'
+               [spinAmount]='7'
+               textOrientation='horizontal'
+               textAlignment="outer"
+               pointerStrokeColor='black'
+               pointerFillColor='purple'
+               [idToLandOn]='idToLandOn'
+               (onSpinStart)='before()'
+               (onSpinComplete)='after()'>
+    </ngx-wheel>
+  </div>
+
+  <div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-setting"
+              id="settingButton"
+              (click)="myreset()"
+              *ngIf="!isViewRoulette"
+              [disabled]="this.items.length === 0">
+        SETTING
+      </button>
+    </div>
+    <div class="container" *ngIf="isViewRoulette">
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-dark"
+                  id="FormLeft"
+                  (click)="list()"
+                  [disabled]="isViewList">
+            LIST
+          </button>
+        </div>
+        <div class="col">
+          <button class="btn btn-dark"
+                  id="buttonsBoxRight"
+                  (click)="reset()"
+                  *ngIf="isSpinning"
+                  [disabled]="!isViewReset">
+            RESET
+          </button>
+          <button class="btn btn-dark"
+                  id="buttonsBoxRight"
+                  (click)="spin()"
+                  *ngIf="!isSpinning">
+            SPIN
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto" *ngIf="isViewRoulette">
+      <button class="btn btn-setting"
+              id="sendResultButton"
+              (click)="send()"
+              *ngIf="isSpinning"
+              [disabled]="!isViewReset">
+        결과 전송
+      </button>
+      </div>
+      <!--<div *ngIf="!isViewRoulette">
+      <form (ngSubmit)="addRestaurant(form)" #form="ngForm">
+        <button class="btn btn-dark"
+                id="FormRight"
+                type="submit"
+                [disabled]="!form.valid"
+                *ngIf="!isViewRoulette">
+          식당 추가
+        </button>
+        <input type="text"
+               id="id"
+               class="form-control"
+               name="text"
+               size="1"
+               ngModel
+               required
+               maxlength="6"
+               placeholder="식당을 입력해주세요"
+               [disabled]="isSpinned">
+      </form>
+    </div>-->
+
+      <div class="container" *ngIf="!isViewRoulette">
+        <div class="text-center mt-5">
+          <div *ngIf="isListEmpty">
+            <h3>식당정보가 없습니다. 식당을 먼저 등록해주세요.</h3>
+            <h3>5초 뒤에 식당 등록 페이지로 이동합니다.</h3>
+          </div>
+          <div class="row" *ngIf="!isListEmpty">
+            <!--<div class="col-md-6">-->
+            <ul class="list-group">
+              <li class="list-group-item">
+                <input type="checkbox" [(ngModel)]="masterSelected" name="list_name" value="m1"
+                       (change)="checkUncheckAll()" /> <strong>전체 선택</strong>
+              </li>
+            </ul>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let item of checklist">
+                <input type="checkbox" [(ngModel)]="item.isSelected" name="list_name" value="{{item.id}}"
+                       (change)="isAllSelected()" />
+                {{item.text}} - {{item.info}}
+                <!--<button (click)="deleteRestaurant(item.id)" >X</button>-->
+              </li>
+            </ul>
+          </div>
+          <!--<div class="col-md-6">
+            <code>{{checkedList}}</code>
+          </div>
+        </div>-->
+        </div>
+      </div>
+
+      <div *ngIf="isViewRoulette">
+      <div *ngIf="isSendResult">
+        <h3>결과가 전송되었습니다.</h3>
+      </div>
+    </div>
+    <!--<hr />-->
+
+    </div>
+  </div>
+
+
+
+
+
+

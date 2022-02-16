@@ -1,0 +1,119 @@
+div {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1 {
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+}
+
+#settingButton {
+  position: relative;
+  background-color: #673ab7;
+  color: white;
+}
+
+#sendResultButton {
+  position: relative;
+  background-color: #673ab7;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#buttonsBoxLeft {
+  width: 100px;
+  float: left
+}
+
+#buttonsBoxRight {
+  width: 100px;
+  float: right;
+}
+
+#FormRight {
+  width: 100px;
+  float: right;
+}
+
+#canvas {
+  width: 390px;
+  height: 390px;
+}
+
+#FormLeft {
+  width: 100px;
+  float: left
+}
+
+#spin {
+  width: 100px;
+}
+
+.btn-dark {
+  background-color: #673ab7;
+  color: white;
+  margin-bottom: 10px;
+  width: 70px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 6px 12px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 5px;
+  color: #212529;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  text-align: left
+}
+
+.controls > .radio:first-child, .controls > .checkbox:first-child {
+    padding-top: 5px;
+}
+.radio, .checkbox {
+    min-height: 20px;
+/*    padding-left: 10px;*/
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+label, input, button, select, textarea {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+  input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 5px 3px 4px;
+    padding: initial;
+    border: initial;
+  }

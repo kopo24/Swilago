@@ -1,0 +1,87 @@
+.toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.bg-light {
+  --bs-bg-opacity: 1;
+  background-color: #673ab7 !important;
+}
+
+.navbar-light .navbar-brand {
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.navbar-brand {
+  padding-top: 0.3125rem;
+  padding-left: 1rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.navbar-collapse {
+  flex-grow: 1;
+  align-items: center;
+  float: right
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #0d6efd;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  align-items: center;
+}
+
+.navbar-light .navbar-toggler {
+  color: white;
+  border-color: white;
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: box-shadow .15s ease-in-out;
+}
+
+li {
+    margin-top: 0.25rem;
+    text-align: center;
+}
+
+a {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.record {
+    padding-right: 15px;
+}
+
+
+div {
+  font-family: 'Noto Sans KR', sans-serif;
+}

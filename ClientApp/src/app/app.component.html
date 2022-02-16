@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+  <a class="navbar-brand" [routerLink]="'.'">{{ title }}</a>
+
+  <button class="navbar-toggler"
+          type="button"
+          (click)="isMenuCollapsed = !isMenuCollapsed">
+    &#9776;
+  </button>
+
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" *ngIf="loginDisplay" [routerLink]="['enrollment']" (click)="isMenuCollapsed = true"
+           style="cursor: pointer">Enrollment</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" *ngIf="loginDisplay" [routerLink]="['record']" (click)="isMenuCollapsed = true" style="cursor: pointer">Record</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!loginDisplay" (click)="loginRedirect()" style="cursor: pointer">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="loginDisplay" (click)="logout()" style="cursor: pointer">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+  <router-outlet *ngIf="!isIframe"></router-outlet>
+</div>

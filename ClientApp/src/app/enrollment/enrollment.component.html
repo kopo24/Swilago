@@ -1,0 +1,15 @@
+<h1>음식점을 등록해주세요 🧾</h1>
+<div class="row">
+  <div class="col-xs-10">
+    <app-enrollment-edit></app-enrollment-edit>
+    <hr />
+    <ul class="list-group">
+      <button class="list-group-item"
+              style="cursor: pointer"
+              *ngFor="let restaurant of restaurants; let i = index"
+              (click)="onEditItem(i)">
+        {{ restaurant.text }} - {{ restaurant.info }}
+      </button>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+h1 {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-left: 10%;
+}
+
+h2 {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-left: 10%;
+}
+
+::ng-deep #pie {
+  height: 440px;
+}
+
+.top {
+    align-content: center;
+}

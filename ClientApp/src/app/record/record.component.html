@@ -1,0 +1,34 @@
+
+<div class="top" *ngIf="stat">
+  <h1>2021년 10월 5일~ 2021년 11월 4일 TOP 3 📍</h1>
+  <h2>🥇 {{stat[0].name}} {{stat[0].selected}}회</h2>
+  <h2>🥈 {{stat[1].name}} {{stat[1].selected}}회</h2>
+  <h2>🥉 {{stat[2].name}} {{stat[2].selected}}회</h2>
+</div>
+<hr />
+<div>
+  <dx-pie-chart id="pie"
+                title="전체 식당 비율"
+                palette="bright"
+                [dataSource]="stat">
+    <dxo-legend horizontalAlignment="center"
+                verticalAlignment="bottom"></dxo-legend>
+    <dxo-export [enabled]="true"></dxo-export>
+    <dxi-series argumentField="name" valueField="pct">
+      <dxo-label [visible]="true"
+                 format="fixedPoint"
+                 [customizeText]="customizeLabel">
+        <dxo-connector [visible]="true" [width]="0.5"></dxo-connector>
+      </dxo-label>
+      <dxo-small-values-grouping mode="smallValueThreshold"
+                                 [threshold]="4.5"></dxo-small-values-grouping>
+    </dxi-series>
+  </dx-pie-chart>
+</div>
+<hr />
+<div>
+  <p><strong>First Name: </strong> {{profile?.givenName}}</p>
+  <p><strong>Last Name: </strong> {{profile?.surname}}</p>
+  <p><strong>Email: </strong> {{profile?.userPrincipalName}}</p>
+  <p><strong>Id: </strong> {{profile?.id}}</p>
+</div>
